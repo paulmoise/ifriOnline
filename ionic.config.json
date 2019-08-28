@@ -1,5 +1,7 @@
 {
   "name": "ifriOnline",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

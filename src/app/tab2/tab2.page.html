@@ -1,9 +1,99 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
-      Tab Two
+      IFRI ON LINE -- Informations
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <div class="igm">
+    <!-- Student  -->
+    <!-- End Student -->
+
+    <!-- Teacher  -->
+    <!-- End Teacher -->
+
+    <!-- Admin  -->
+    <form>
+      <h2>Publier une information</h2>
+      <ion-item>
+        <ion-label position="floating">Type de l'information</ion-label>
+        <ion-select (ionChange)="onChange($event.target.value)" name="typeInfo" [(ngModel)]="typeInfo">
+          <ion-select-option value="CM">Communiqué</ion-select-option>
+          <ion-select-option value="NI">Note d'information</ion-select-option>
+          <ion-select-option value="EVENT">Evénement</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Groupe destinataire</ion-label>
+        <ion-select name="destinataire" [(ngModel)]="destinataire">
+          <ion-select-option value="1">Tout le monde</ion-select-option>
+          <ion-select-option value="2">Etudiants</ion-select-option>
+          <ion-select-option value="3">Enseignants</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Spécialités concernées</ion-label>
+        <ion-select multiple="true" name="specialites" [(ngModel)]="specialites">
+          <ion-select-option value="GL">Génie logiciel</ion-select-option>
+          <ion-select-option value="SI">Sécuritté informatique</ion-select-option>
+          <ion-select-option value="IM">Internet et Multimedia</ion-select-option>
+          <ion-select-option value="SIRI">Systèmes d'Information et Réseaux Informatiques</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+          <ion-label>Niveaux d'études concernés</ion-label>
+          <ion-select multiple="true" name="niveauEtudes" [(ngModel)]="niveauEtudes">
+              <ion-select-option value="1">Licence 1</ion-select-option>
+              <ion-select-option value="2">Licence 2</ion-select-option>
+              <ion-select-option value="3">Licence 3</ion-select-option>
+              <ion-select-option value="4">Master 1</ion-select-option>
+              <ion-select-option value="5">Master 2</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Titre de l'information</ion-label>
+        <ion-input name="title" [(ngModel)]="title"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Objet de l'information</ion-label>
+        <ion-input  name="object" [(ngModel)]="object"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Description ou contenu de l'information</ion-label>
+        <ion-textarea  name="description" [(ngModel)]="description"></ion-textarea>
+      </ion-item>
+
+      <ion-item *ngIf="active_ni">
+        <ion-label position="floating">Référence de la note</ion-label>
+        <ion-input name="ref" [(ngModel)]="ref"></ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="active_ev">
+        <ion-label position="floating">Date de l'événement</ion-label>
+        <ion-datetime displayFormat="DD-MM-YYYY H:mm" name="dateEven" [(ngModel)]="dateEven"></ion-datetime>
+      </ion-item>
+
+      <ion-item *ngIf="!active_cm">
+        <ion-label>Fichier à uploader</ion-label>
+        <input style="display: none" type="file" id="fileInput" (change)="onFileSelected($event.target.files[0])">
+        <ion-button (click)="pickFile()" color="danger">
+          <ion-icon name="navigate"></ion-icon> Parcourir
+        </ion-button> <br>
+        <span>{{ selectedFile }}</span>
+      </ion-item>
+
+      <ion-button (click)="onSubmit()" expand="block">
+        <ion-icon name="checkmark"></ion-icon> Publier
+      </ion-button>
+    </form>
+    <!-- End Admin -->
+  </div>
+</ion-content>

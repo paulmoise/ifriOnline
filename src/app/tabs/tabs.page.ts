@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 })
 export class TabsPage {
 
+  isUserStudent: boolean = true; 
+
   constructor() {}
 
 }

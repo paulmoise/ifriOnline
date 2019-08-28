@@ -1,1 +1,20 @@
+.igm {
+    background-image: url('../../assets/futur.jpg');
+    background-size: cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+form {
+    margin: 2%;
+    background-color: #fff;
+    padding-bottom: 10px;
+    padding-top: 20px;
 
+    h2 {
+        margin-top: 10px;
+        color: maroon;
+        text-align: center;
+    }
+}
